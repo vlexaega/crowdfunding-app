@@ -10,4 +10,13 @@ router.get('/', async (req, res) => {
   res.render('all', { projects });
 });
 
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
+});
+
 module.exports = router;
